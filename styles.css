@@ -1,0 +1,952 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #FF6B6B;  /* 活力珊瑚红 */
+    --secondary-color: #4ECDC4;  /* 清新薄荷绿 */
+    --accent-color: #FFD93D;  /* 明亮黄色 */
+    --text-color: #2C3E50;  /* 深色文字 */
+    --light-bg: #F9F9F9;  /* 浅色背景 */
+    --gradient-1: linear-gradient(135deg, #FF6B6B, #FFD93D);  /* 活力渐变 */
+    --gradient-2: linear-gradient(135deg, #4ECDC4, #45B7AF);  /* 清新渐变 */
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    background-image: url('images/header-bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+}
+
+/* 导航菜单样式 */
+.nav {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    background-color: rgba(127, 176, 105, 0.1);
+}
+
+/* 头部区域样式 */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 8rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/header-bg.jpg') center/cover;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+header .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* 产品展示区样式 */
+.product-showcase {
+    padding: 4rem 0;
+    background-color: white;
+    position: relative;
+}
+
+.product-grid {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    overflow-x: auto;
+    padding: 1rem;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.product-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.scroll-left {
+    left: 20px;
+}
+
+.scroll-right {
+    right: 20px;
+}
+
+.product-card {
+    width: 300px;
+    height: auto; /* 改为自适应高度 */
+    background: white; /* 修改背景为白色 */
+    backdrop-filter: none;
+    border-radius: 15px;
+    overflow: hidden; /* 改回hidden */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-bottom: 20px; /* 增加底部边距 */
+    display: flex;
+    flex-direction: column; /* 使用flex布局 */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.price-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(255,107,107,0.4);
+    z-index: 2;
+    font-size: 1.1rem;
+}
+
+.price-tag::before {
+    content: '¥';
+    font-size: 0.8em;
+    margin-right: 2px;
+}
+
+.price-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.price-detail .original {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.price-detail .discount {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.product-card img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1.5rem;
+    background: white; /* 改为纯白色背景 */
+    min-height: 120px; /* 使用最小高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 修改为顶部对齐 */
+    position: relative; /* 添加相对定位 */
+    padding-bottom: 1.5rem; /* 减少底部padding */
+    border-top: 1px solid #f0f0f0; /* 添加上边框 */
+    flex: 1; /* 允许伸展 */
+}
+
+.product-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+}
+
+.product-info p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 视频展示区样式 */
+.video-section {
+    background: linear-gradient(135deg, var(--light-bg), white);
+    padding: 4rem 0;
+}
+
+.virtual-showroom {
+    text-align: center;
+    padding: 3rem;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out;
+}
+
+.virtual-showroom img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.5s ease;
+}
+
+.virtual-showroom img:hover {
+    transform: scale(1.05);
+}
+
+.virtual-showroom h3 {
+    margin-bottom: 1rem;
+}
+
+.virtual-showroom p {
+    margin: 1rem 0;
+}
+
+.virtual-showroom a {
+    margin-top: 1rem;
+}
+
+/* 面料故事样式 */
+.story-section {
+    padding: 4rem 0;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+}
+
+.story-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.story-text {
+    padding: 2rem;
+}
+
+.story-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 制作工艺样式 */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 0;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+}
+
+.feature-card {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s;
+    border: 2px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+    background-size: 200% 200%;
+    animation: gradientFlow 3s ease infinite;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(255, 107, 107, 0.4);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* 标题样式 */
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 1rem auto;
+}
+
+footer {
+    background-color: var(--text-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+/* 添加动画关键帧 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* 添加图片容器样式 */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    animation: float 6s ease-in-out infinite;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover .image-overlay {
+    transform: translateY(0);
+}
+
+/* 添加产品卡片交互样式 */
+.product-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.product-card:hover .product-details {
+    opacity: 1;
+    visibility: visible;
+}
+
+.detail-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: var(--light-bg);
+    border-radius: 10px;
+    width: 100%;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .detail-item {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.detail-item:nth-child(1) { transition-delay: 0.1s; }
+.detail-item:nth-child(2) { transition-delay: 0.2s; }
+
+.back-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .back-btn {
+    opacity: 1;
+}
+
+.back-btn:hover {
+    background: var(--accent-color);
+}
+
+/* 弹出式详情样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    padding: 0;
+    position: relative;
+    overflow-y: auto; /* 启用垂直滚动 */
+    transition: transform 0.3s ease;
+}
+
+.modal-header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.modal-close {
+    background: rgba(0,0,0,0.1);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-body {
+    padding: 0;
+    display: block;
+}
+
+/* 商品详情页样式 */
+.product-detail-header {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-detail-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-title-section {
+    padding: 1.5rem;
+    border-bottom: 10px solid #f5f5f5;
+}
+
+.product-title-section h2 {
+    font-size: 1.8rem;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.product-title-section h2::after {
+    display: none;
+}
+
+.product-price {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.product-price .original {
+    font-size: 1rem;
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+}
+
+.product-desc-section {
+    padding: 1.5rem;
+    border-bottom: 10px solid #f5f5f5;
+}
+
+.product-desc-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.product-desc-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    height: 1.2rem;
+    width: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.product-desc-content {
+    line-height: 1.8;
+    color: #666;
+}
+
+.product-detail-section {
+    padding: 1.5rem;
+    border-bottom: 10px solid #f5f5f5;
+}
+
+.product-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.detail-feature {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.detail-feature h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.material-info-section {
+    padding: 1.5rem;
+    border-bottom: 10px solid #f5f5f5;
+}
+
+.material-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.material-card h4 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.material-card p {
+    line-height: 1.7;
+    color: #666;
+}
+
+.gallery-section {
+    padding: 1.5rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.gallery-item {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* 底部固定操作栏 */
+.product-action-bar {
+    display: none;
+}
+
+.action-buttons {
+    display: none;
+}
+
+.buy-buttons {
+    display: none;
+}
+
+/* 诗词样式 */
+.poem-section {
+    padding: 2rem 1.5rem;
+    background: #f9f9f9;
+    text-align: center;
+    border-bottom: 10px solid #f5f5f5;
+}
+
+.poem-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.poem-content {
+    line-height: 2;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.poem-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.poem-highlight {
+    background: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* 数据收集模块样式 */
+.data-collector {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.data-collector::before {
+    content: '❤️';
+    font-size: 1.5rem;
+}
+
+.data-collector.expanded {
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+    padding: 1rem;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    color: var(--text-color);
+}
+
+.data-collector.expanded::before {
+    display: none;
+}
+
+.data-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.data-collector.expanded .data-header {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.data-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.data-collector.expanded .data-content {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.data-item {
+    margin-bottom: 0.8rem;
+    padding: 0.8rem;
+    background: var(--light-bg);
+    border-radius: 10px;
+    transform: translateX(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.data-collector.expanded .data-item {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.data-item:nth-child(1) { transition-delay: 0.1s; }
+.data-item:nth-child(2) { transition-delay: 0.2s; }
+.data-item:nth-child(3) { transition-delay: 0.3s; }
+
+.analysis-section {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--light-bg);
+    border-radius: 10px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transition-delay: 0.4s;
+}
+
+.data-collector.expanded .analysis-section {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.data-collector.expanded .close-btn {
+    opacity: 1;
+}
+
+.close-btn:hover {
+    background: var(--light-bg);
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+/* 宋锦发展历程思维导图展示 */
+.craft-showcase {
+    margin-bottom: 3rem;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.craft-showcase h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.craft-showcase img {
+    width: 100%;
+    max-width: 800px;
+    height: 360px;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    background: #f9f9f9;
+}
+
+.craft-showcase p {
+    background: rgba(44,62,80,0.08);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.9;
+} 

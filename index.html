@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新中式服装展示 - 春夏系列</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 导航菜单 -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">宋锦文化</div>
+            <div class="nav-links">
+                <a href="#products">春夏系列</a>
+                <a href="#virtual">虚拟展示</a>
+                <a href="#story">面料故事</a>
+                <a href="#patterns">宋锦纹样</a>
+                <a href="#craftsmanship">匠心传承</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部区域 -->
+    <header>
+        <div class="container">
+            <h1>新中式宋锦旗袍</h1>
+            <p style="font-size: 1.2rem; margin: 1.5rem 0; max-width: 800px; margin: 0 auto;">
+                融合传统工艺与现代设计，展现东方女性优雅气质
+            </p>
+            <a href="#products" class="btn">探索春夏系列</a>
+        </div>
+    </header>
+
+    <!-- 春夏系列产品展示区 -->
+    <section id="products" class="product-showcase">
+        <div class="container">
+            <h2>春夏新品系列</h2>
+            <button class="scroll-btn scroll-left" onclick="scrollProducts('left')">←</button>
+            <button class="scroll-btn scroll-right" onclick="scrollProducts('right')">→</button>
+            <div class="product-grid">
+                <div class="product-card" onclick="openModal('蝶恋花')">
+                    <div class="price-tag">¥3,680</div>
+                    <img src="https://img2.baidu.com/it/u=314224041,1334970865&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750" alt="蝶恋花宋锦旗袍">
+                    <div class="product-info">
+                        <h3>「蝶恋花」宋锦旗袍</h3>
+                        <p>灵感源自宋代词牌名，采用传统宋锦面料，融合现代剪裁，展现东方女性的优雅气质。</p>
+                        <div class="price-detail">
+                            <span class="original">¥4,280</span>
+                            <span class="discount">8.5折</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openModal('清平乐')">
+                    <div class="price-tag">¥2,980</div>
+                    <img src="https://img1.baidu.com/it/u=153083015,326486681&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1320" alt="清平乐宋锦旗袍">
+                    <div class="product-info">
+                        <h3>「清平乐」宋锦旗袍</h3>
+                        <p>采用双面绣工艺宋锦面料，配合侧开叉设计，展现东方女性的优雅气质。</p>
+                        <div class="price-detail">
+                            <span class="original">¥3,580</span>
+                            <span class="discount">8.3折</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openModal('如梦令')">
+                    <div class="price-tag">¥4,280</div>
+                    <img src="https://img0.baidu.com/it/u=2612396878,922396667&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=667" alt="如梦令宋锦旗袍">
+                    <div class="product-info">
+                        <h3>「如梦令」宋锦旗袍</h3>
+                        <p>特选轻薄宋锦面料，采用简约剪裁，适合春夏季节日常穿着的旗袍款式。</p>
+                        <div class="price-detail">
+                            <span class="original">¥4,980</span>
+                            <span class="discount">8.6折</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openModal('忆江南')">
+                    <div class="price-tag">¥3,280</div>
+                    <img src="https://img2.baidu.com/it/u=1082895263,736633428&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1319" alt="忆江南宋锦旗袍">
+                    <div class="product-info">
+                        <h3>「忆江南」宋锦旗袍</h3>
+                        <p>灵感来自水乡风景，采用水纹宋锦面料，融合现代剪裁，展现江南女子韵味。</p>
+                        <div class="price-detail">
+                            <span class="original">¥3,880</span>
+                            <span class="discount">8.5折</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openModal('念奴娇')">
+                    <div class="price-tag">¥3,880</div>
+                    <img src="https://t15.baidu.com/it/u=3206499370,2811226203&fm=224&app=112&f=JPEG?w=265&h=499" alt="念奴娇宋锦旗袍">
+                    <div class="product-info">
+                        <h3>「念奴娇」宋锦旗袍</h3>
+                        <p>采用珍贵宋锦面料，融合古典与现代元素，打造富有诗意和艺术感的旗袍。</p>
+                        <div class="price-detail">
+                            <span class="original">¥4,580</span>
+                            <span class="discount">8.5折</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 弹出式详情模态框 -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>宋锦旗袍详情</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- 产品大图 -->
+                <div class="product-detail-header">
+                    <img id="modalMainImg" src="https://img0.baidu.com/it/u=3157561322,1096729703&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=652" alt="宋锦旗袍">
+                </div>
+                
+                <!-- 产品标题与价格 -->
+                <div class="product-title-section">
+                    <h2 id="modalProductTitle">「蝶恋花」宋锦旗袍</h2>
+                    <div class="product-price">
+                        ¥3,680 <span class="original">¥4,280</span>
+                    </div>
+                    <div style="color: #666; font-size: 0.9rem;">
+                        裙长120CM起，高贵典雅
+                    </div>
+                </div>
+                
+                <!-- 产品描述 -->
+                <div class="product-desc-section">
+                    <div class="product-desc-title">典雅立领设计</div>
+                    <div class="product-desc-content">
+                        复古优雅小旗袍<br>
+                        精心勾勒出肩颈流畅的线条美感<br>
+                        别致裁剪，典雅立领，<br>
+                        珍珠盘扣，精致巧妙<br>
+                        质感面料，美化了视觉效果
+                    </div>
+                </div>
+                
+                <!-- 面料详情 -->
+                <div class="material-info-section">
+                    <div class="product-desc-title">面料与工艺</div>
+                    <div class="material-card">
+                        <h4>宋锦面料</h4>
+                        <p>精选优质宋锦面料，每一款都经过严格筛选，确保品质。面料采用传统提花工艺，纹理清晰，手感柔和。春夏系列特别选用轻薄透气的桑蚕丝面料，着重提升穿着舒适度。</p>
+                        <div style="margin-top: 1rem;">
+                            <img id="modalFabricImg" src="https://img1.baidu.com/it/u=1334789429,478148035&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=666" alt="宋锦面料" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        </div>
+                    </div>
+                    <div class="material-card">
+                        <h4>工艺展示</h4>
+                        <p>传统工艺与现代技术的完美结合，运用传统手工盘扣、精细绣花和立体剪裁工艺。每个盘扣由匠人手工制作，历经18道工序；绣花部分运用双面绣技术，正反两面均呈现精美图案。</p>
+                        <div style="margin-top: 1rem;">
+                            <img id="modalCraftImg" src="https://img2.baidu.com/it/u=579066535,1311224269&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1066" alt="工艺展示" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品特点 -->
+                <div class="product-detail-section">
+                    <div class="product-desc-title">产品特点</div>
+                    <div class="product-detail-grid">
+                        <div class="detail-feature">
+                            <h4>舒适透气</h4>
+                            <p>采用天然桑蚕丝，轻薄透气</p>
+                        </div>
+                        <div class="detail-feature">
+                            <h4>精致盘扣</h4>
+                            <p>手工制作盘扣，彰显工艺美感</p>
+                        </div>
+                        <div class="detail-feature">
+                            <h4>立体剪裁</h4>
+                            <p>修身不紧绷，展现优雅曲线</p>
+                        </div>
+                        <div class="detail-feature">
+                            <h4>精细绣花</h4>
+                            <p>双面绣工艺，细节精致</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 诗词意境 -->
+                <div class="poem-section" id="modalPoemSection">
+                    <div class="poem-title">《蝶恋花》</div>
+                    <div class="poem-content">
+                        花褪残红青杏小<br>
+                        燕子飞时，绿水人家绕<br>
+                        枝上柳绵吹又少<br>
+                        天涯何处无芳草
+                    </div>
+                    <div class="poem-highlights">
+                        <div class="poem-highlight">舒适面料</div>
+                        <div class="poem-highlight">珍珠盘扣</div>
+                        <div class="poem-highlight">东方韵味</div>
+                    </div>
+                </div>
+                
+                <!-- 图片展示 -->
+                <div class="gallery-section">
+                    <div class="product-desc-title">实物展示</div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://img1.baidu.com/it/u=3990070349,1475811574&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=721" alt="宋锦旗袍展示">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://img1.baidu.com/it/u=2767020100,1088553234&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=888" alt="宋锦旗袍展示">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://img1.baidu.com/it/u=2771224189,3833692133&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=855" alt="宋锦旗袍展示">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://img1.baidu.com/it/u=901170617,3589960297&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750" alt="宋锦旗袍展示">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 虚拟展示区域 -->
+    <section id="virtual" class="video-section">
+        <div class="container">
+            <h2>虚拟展示</h2>
+            <div class="virtual-showroom">
+                <div style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 2rem;
+                    align-items: center;
+                ">
+                    <div style="text-align: left;">
+                        <h3 style="
+                            font-size: 2rem;
+                            margin-bottom: 1.5rem;
+                            background: var(--gradient-1);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            animation: gradientFlow 3s ease infinite;
+                        ">苏州丝绸博物馆虚拟展厅</h3>
+                        <p style="
+                            margin: 1rem 0;
+                            line-height: 1.8;
+                            color: var(--text-color);
+                        ">欢迎参观苏州丝绸博物馆虚拟展厅，这里展示了中国丝绸文化的精髓，包括宋锦、云锦等珍贵织锦艺术。通过虚拟展厅，您可以近距离欣赏这些珍贵的文化遗产，感受中国传统丝绸工艺的魅力。</p>
+                        <a href="http://szsilk.wglj.suzhou.com.cn/" 
+                           target="_blank" 
+                           class="btn" 
+                           style="
+                                margin-top: 1.5rem;
+                                background: var(--gradient-1);
+                                border: none;
+                                padding: 1rem 2.5rem;
+                                font-size: 1.1rem;
+                                font-weight: bold;
+                                box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+                           ">
+                            进入虚拟展厅 →
+                        </a>
+                    </div>
+                    <div class="image-container">
+                        <img src="./images/virtual-showroom.jpg" 
+                             alt="苏州丝绸博物馆虚拟展厅" 
+                             style="
+                                width: 100%;
+                                height: 400px;
+                                object-fit: cover;
+                             ">
+                        <div class="image-overlay">
+                            <p style="margin: 0; font-size: 1rem;">点击图片进入虚拟展厅</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 面料故事 -->
+    <section id="story" class="story-section">
+        <div class="container">
+            <h2>面料背后的故事</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <h3>鹤鹿同春</h3>
+                    <p>"鹤鹿同春"是宋锦经典吉祥纹样，以仙鹤（象征长寿）、瑞鹿（谐音"禄"，代表富贵）与春日元素组合，表达对安康福禄的祈愿。其纹样繁复华丽，多配以八达晕地纹，盛行于明清宫廷，用于服饰与书画装裱。现代通过非遗技艺复原，这一传统图案已成为高端旗袍和国礼的重要设计元素，彰显宋锦的文化底蕴与艺术价值。</p>
+                </div>
+                <div style="position:relative;width:100%;height:500px;display:flex;align-items:center;justify-content:center;">
+                    <img src="images/fabric-story-cover.jpg" alt="宋锦面料工艺展示" class="story-image" style="object-fit:contain;width:100%;height:100%;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="position:absolute;bottom:0;left:0;width:100%;background:rgba(44,62,80,0.45);color:#fff;padding:1.2rem 2rem;border-radius:0 0 15px 15px;font-size:1.2rem;letter-spacing:2px;">
+                        面料背后的故事
+                    </div>
+                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;background:rgba(255,255,255,0.85);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.15);cursor:pointer;" onclick="openVideoModal('BV1PU4y1x7iH', '宋锦面料工艺展示')">
+                        <span style="font-size:3rem;color:var(--primary-color);">▶</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 宋锦发展历程思维导图展示 -->
+            <div class="craft-showcase" style="margin-top:3rem;">
+                <h3 style="text-align: center;margin-bottom: 2rem;color: var(--primary-color);font-size: 1.8rem;">宋锦发展历程</h3>
+                <div style="width:100%;display:flex;justify-content:center;align-items:center;gap:2rem;margin-bottom:2rem;">
+                    <img src="images/dev-photo1.jpg" alt="宋锦发展历程照片1" style="width:100%;max-width:760px;height:520px;object-fit:contain;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.08);background:#f9f9f9;">
+                    <img src="images/dev-photo2.jpg" alt="宋锦发展历程照片2" style="width:100%;max-width:760px;height:520px;object-fit:contain;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.08);background:#f9f9f9;">
+                </div>
+                <div style="background:rgba(44,62,80,0.08);padding:1.5rem 2rem;border-radius:12px;font-size:1.1rem;color:var(--text-color);line-height:1.9;">
+                    以传统纹样为魂、现代设计为形，将"鹤鹿同春"等吉祥图案融入当代剪裁，通过数码提花技术实现轻量化与实穿性，既保留丝绸的华贵底蕴，又契合日常穿搭需求。从APEC国礼到年轻人追捧的文创配饰，宋锦正以非遗时尚化姿态跨越时空，成为兼具文化厚度与生活美学的东方时尚符号。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 中国传统纹样 -->
+    <section id="patterns" class="pattern-section" style="
+        padding: 4rem 0;
+        background: rgba(255,255,255,0.2);
+        backdrop-filter: blur(8px);
+    ">
+        <div class="container">
+            <h2>中国传统纹样</h2>
+            <div class="pattern-content" style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: center;
+                margin-top: 2rem;
+            ">
+                <div class="pattern-text" style="padding: 2rem;">
+                    <h3 style="
+                        font-size: 2rem;
+                        margin-bottom: 1.5rem;
+                        background: var(--gradient-1);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    ">纹样之美</h3>
+                    <p style="
+                        margin: 1rem 0;
+                        line-height: 1.8;
+                        color: var(--text-color);
+                    ">中国传统纹样承载着深厚的文化内涵，每一款纹样都诉说着独特的故事。从云纹到龙纹，从花鸟到山水，这些纹样不仅展现了精湛的工艺，更体现了中华民族的审美智慧。</p>
+                    <div class="pattern-features" style="
+                        margin-top: 2rem;
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 1.5rem;
+                    ">
+                        <div class="feature" style="
+                            background: white;
+                            padding: 1.5rem;
+                            border-radius: 15px;
+                            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                        ">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">云纹</h4>
+                            <p style="color: #666;">象征祥瑞，寓意吉祥如意</p>
+                        </div>
+                        <div class="feature" style="
+                            background: white;
+                            padding: 1.5rem;
+                            border-radius: 15px;
+                            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                        ">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">龙纹</h4>
+                            <p style="color: #666;">代表权威，彰显尊贵气质</p>
+                        </div>
+                        <div class="feature" style="
+                            background: white;
+                            padding: 1.5rem;
+                            border-radius: 15px;
+                            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                        ">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">花鸟纹</h4>
+                            <p style="color: #666;">展现自然之美，寓意美好</p>
+                        </div>
+                        <div class="feature" style="
+                            background: white;
+                            padding: 1.5rem;
+                            border-radius: 15px;
+                            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                        ">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">山水纹</h4>
+                            <p style="color: #666;">体现意境，彰显文化底蕴</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pattern-video" style="
+                    background: white;
+                    padding: 2rem;
+                    border-radius: 20px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                ">
+                    <h3 style="
+                        text-align: center;
+                        margin-bottom: 1.5rem;
+                        color: var(--primary-color);
+                    ">纹样工艺展示</h3>
+                    <!-- 视频展示卡片 -->
+                    <div class="video-cards" style="
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 2rem;
+                    ">
+                        <!-- 云雷蝉纹视频卡片 -->
+                        <div class="video-card" style="
+                            background: var(--light-bg);
+                            border-radius: 15px;
+                            overflow: hidden;
+                            cursor: pointer;
+                            transition: transform 0.3s ease;
+                        " onclick="openVideoModal('BV13W4y1Z7NJ', '云雷蝉纹：传统纹样中的祥瑞象征')">
+                            <div style="
+                                position: relative;
+                                padding-bottom: 56.25%;
+                                height: 0;
+                                overflow: hidden;
+                            ">
+                                <img src="images/pattern1.jpg" alt="云雷蝉纹" style="
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                ">
+                                <div style="
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 60px;
+                                    height: 60px;
+                                    background: rgba(255, 255, 255, 0.9);
+                                    border-radius: 50%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                ">
+                                    <span style="
+                                        font-size: 2rem;
+                                        color: var(--primary-color);
+                                    ">▶</span>
+                                </div>
+                            </div>
+                            <div style="
+                                padding: 1.5rem;
+                                text-align: center;
+                            ">
+                                <h4 style="
+                                    margin-bottom: 0.5rem;
+                                    color: var(--text-color);
+                                ">云雷蝉纹</h4>
+                                <p style="color: #666;">传统纹样中的祥瑞象征</p>
+                            </div>
+                        </div>
+                        <!-- 杏花纹视频卡片 -->
+                        <div class="video-card" style="
+                            background: var(--light-bg);
+                            border-radius: 15px;
+                            overflow: hidden;
+                            cursor: pointer;
+                            transition: transform 0.3s ease;
+                        " onclick="openVideoModal('BV1BoddYqEKj', '杏花纹：传统纹样中的自然之美')">
+                            <div style="
+                                position: relative;
+                                padding-bottom: 56.25%;
+                                height: 0;
+                                overflow: hidden;
+                            ">
+                                <img src="images/pattern2.jpg" alt="杏花纹" style="
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                ">
+                                <div style="
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 60px;
+                                    height: 60px;
+                                    background: rgba(255, 255, 255, 0.9);
+                                    border-radius: 50%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                ">
+                                    <span style="
+                                        font-size: 2rem;
+                                        color: var(--primary-color);
+                                    ">▶</span>
+                                </div>
+                            </div>
+                            <div style="
+                                padding: 1.5rem;
+                                text-align: center;
+                            ">
+                                <h4 style="
+                                    margin-bottom: 0.5rem;
+                                    color: var(--text-color);
+                                ">杏花纹</h4>
+                                <p style="color: #666;">传统纹样中的自然之美</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 匠心传承区域 -->
+    <section id="craftsmanship" class="features">
+        <div class="container">
+            <h2>匠心传承</h2>
+            <div class="feature-cards" style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+                margin-top: 2rem;
+            ">
+                <div class="feature-card">
+                    <h3>传统工艺</h3>
+                    <p>宋锦是中国古代丝织技术的巅峰之作，其工艺复杂精细，每一道工序都凝聚着匠人的智慧。从选料、设计到织造，都需要高超的技艺和耐心。</p>
+                    <img src="images/qianxiaoping.jpg" alt="传统工艺" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-top: 1rem;">
+                </div>
+                <div class="feature-card">
+                    <h3>非遗传承</h3>
+                    <p>作为国家级非物质文化遗产，宋锦的传承面临着诸多挑战。我们致力于通过创新设计和现代应用，让这一古老工艺焕发新生，吸引年轻一代关注和学习。</p>
+                    <img src="images/master-lidexi.jpg" alt="非遗传承" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-top: 1rem;">
+                </div>
+                <div class="feature-card">
+                    <h3>匠人精神</h3>
+                    <p>每件宋锦旗袍的背后，都有默默付出的匠人。他们专注于每一个细节，追求完美，将传统文化和工艺带入现代生活，诠释着中国匠人的坚持与执着。</p>
+                    <img src="images/master-shangjiukai.jpg" alt="匠人精神" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-top: 1rem;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据收集器 -->
+    <div class="data-collector" id="dataCollector" onclick="toggleDataCollector(event)">
+        <button class="close-btn">&times;</button>
+        <div class="data-header">
+            <h3>用户数据分析</h3>
+        </div>
+        <div class="data-content">
+            <div class="data-item">
+                <div>总访问量: <span id="totalVisits">0</span>次</div>
+            </div>
+            <div class="data-item">
+                <div>模块点击量:</div>
+                <div>春夏系列: <span id="productsClicks">0</span>次</div>
+                <div>虚拟展示: <span id="videoClicks">0</span>次</div>
+                <div>面料故事: <span id="storyClicks">0</span>次</div>
+                <div>工艺传承: <span id="processClicks">0</span>次</div>
+            </div>
+            <div class="data-item">
+                <div>内容点击量:</div>
+                <div>旗袍详情: <span id="qipaoClicks">0</span>次</div>
+                <div>面料详情: <span id="fabricClicks">0</span>次</div>
+                <div>工艺详情: <span id="craftClicks">0</span>次</div>
+            </div>
+            <div class="analysis-section">
+                <div>分析报告:</div>
+                <pre id="analysisContent" style="white-space: pre-wrap; font-size: 0.8rem;">暂无数据分析</pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2023 宋锦文化传承 - 新中式服装展示</p>
+        <p>地址：苏州市姑苏区平江路宋锦文化馆</p>
+        <p>电话：0512-12345678 | 邮箱：info@songjin.com</p>
+    </footer>
+
+    <!-- 引入JavaScript -->
+    <script src="scripts.js"></script>
+</body>
+</html> 
